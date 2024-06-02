@@ -1,0 +1,22 @@
+@import "@streets-heaver/shui2/SHUI2Styles.css";
+
+.MainCard{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 5px;
+    gap: 10px;
+}
+
+.MainCardLabel{
+    font-weight: 800;
+    padding: 20px;
+}
+
+.MainCardItems {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+
+}

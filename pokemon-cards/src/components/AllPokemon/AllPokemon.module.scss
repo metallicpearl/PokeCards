@@ -1,0 +1,39 @@
+
+.AllPokemonImageContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1223px;
+}
+
+
+.AllPokemonPage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.AllPokemonTitle {
+    font-weight: 400;
+    color: lightgoldenrodyellow;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    padding:20px;
+    animation-name: TitleColour;
+    animation-delay: 0.05s;
+    animation-duration: 0.5s; 
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+
+}
+
+@keyframes TitleColour {
+    from {
+      color: red;
+    }
+    to {
+      colour: rgb(148, 148, 7)
+    }
+  }
