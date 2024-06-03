@@ -1,5 +1,33 @@
 import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+
+export const useGetPokemonPages = () => {
+  const pokeData = useInfiniteQuery({
+    queryKey: ["pokemonPages"],
+    queryFn: async ({ pageParam = "https://pokeapi.co/api/v2/pokemon/" }) => {
+      const pokeData = await axios.get(pageParam);
+      const mappedData = await Promise.all(
+        pokeData?.data?.results?.map(async (x) => {
+          const imageUrl = await axios.get(x?.url);
+          return {
+            ...x,
+            imageUrl: imageUrl?.data?.sprites?.front_default,
+            hoverImageUrl: imageUrl?.data?.sprites?.front_shiny,
+            id: imageUrl?.data?.id,
+          };
+        })
+      );
+      console.log(mappedData);
+      return { ...pokeData?.data, results: mappedData };
+    },
+    getNextPageParam: (lastPage) => lastPage?.next,
+    refetchOnWindowFocus: false,
+  });
+  console.log();
+  return pokeData;
+};
 
 export const useGetPokemonData = () => {
   const { data, error } = useQuery({

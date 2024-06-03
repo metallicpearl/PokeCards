@@ -6,21 +6,20 @@ import {
 } from "./components/CustomCard/CustomCard";
 import { PersonaCard } from "./components/MainCard/MainCard";
 import { AllPokemon } from "./components/AllPokemon/AllPokemon";
-import pokemonImage from "./assets/pokemon.jpg";
 import {
   useGetPokemonData,
   useGetPokemonDataFiltered,
+  useGetPokemonPages,
 } from "./api/hooks/useGetPokemonData";
 import { useParams } from "react-router-dom";
-import { StatLine } from "./components/StatLine/StatLine";
-import { Card, Ghost } from "@streets-heaver/shui2";
-import { capitalizeFirstLetter } from "./functions/DataFunctions";
-import { useState } from "react";
+import { Card } from "@streets-heaver/shui2";
 
 export const App = () => {
   const { pokemonId } = useParams();
-  const data = useGetPokemonDataFiltered(pokemonId);
+  const pokeId = pokemonId === undefined ? 1 : pokemonId;
+  const data = useGetPokemonDataFiltered(pokeId);
   const allData = useGetPokemonData();
+  const allPages = useGetPokemonPages();
 
   if (typeof data !== "undefined" && typeof allData !== "undefined") {
     const height = data?.height;
@@ -30,11 +29,11 @@ export const App = () => {
     const artwork2 = data?.artwork2;
     const totalScore =
       Number.parseInt(data?.stat1value) +
-      Number.parseInt(data?.stat1value) +
-      Number.parseInt(data?.stat1value) +
-      Number.parseInt(data?.stat1value) +
-      Number.parseInt(data?.stat1value) +
-      Number.parseInt(data?.stat1value);
+      Number.parseInt(data?.stat2value) +
+      Number.parseInt(data?.stat3value) +
+      Number.parseInt(data?.stat4value) +
+      Number.parseInt(data?.stat5value) +
+      Number.parseInt(data?.stat6value);
     const abilities = () => {
       const abilitiesArray = [];
       data?.abilities?.map((x) => {
@@ -154,7 +153,10 @@ export const App = () => {
         <div>
           <div className={classes.AllPokemonAndDetails}>
             <div>
-              <AllPokemon data={allData} />
+              <AllPokemon
+                fetchNextPage={allPages.fetchNextPage}
+                data={allPages?.data?.pages}
+              />
             </div>
           </div>
         </div>
