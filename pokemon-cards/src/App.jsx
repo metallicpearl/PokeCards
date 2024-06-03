@@ -82,7 +82,7 @@ export const App = () => {
 
     return (
       <div className={classes.AppContainer}>
-        <div>
+        <div className={classes.PersonaContainer}>
           <PersonaCard height={height} weight={weight} name={name} />
           <div>
             <CustomCardMain
@@ -125,37 +125,37 @@ export const App = () => {
                 />
               </div>
             </CustomCardMain>
+            <div style={{ padding: "10px 0 1px 25px" }}>
+              © PVSH Corporation Ltd.
+            </div>
           </div>
+        </div>
+        <div className={classes.ImagesStatsContainer}>
+          <Card>
+            <div className={classes.ImagesAndStats}>
+              <div className={classes.ImagesContainer}>
+                <div>
+                  <img src={artwork2} className={classes.ImageContainerFlip} />
+                </div>
+                <div className={classes.StatsAndTotal}>
+                  <CustomCardStandardStats
+                    total={totalScore}
+                    statsCollection={statsCollection}
+                    cardTitle={"Stats"}
+                  />
+                </div>
+                <div>
+                  <img src={artwork} className={classes.ImageContainer} />
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
         <div>
           <div className={classes.AllPokemonAndDetails}>
             <div>
               <AllPokemon data={allData} />
             </div>
-            <>
-              <Card>
-                <div className={classes.ImagesAndStats}>
-                  <div className={classes.ImagesContainer}>
-                    <div>
-                      <img
-                        src={artwork2}
-                        className={classes.ImageContainerFlip}
-                      />
-                    </div>
-                    <div className={classes.StatsAndTotal}>
-                      <CustomCardStandardStats
-                        total={totalScore}
-                        statsCollection={statsCollection}
-                        cardTitle={"Stats"}
-                      />
-                    </div>
-                    <div>
-                      <img src={artwork} className={classes.ImageContainer} />
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </>
           </div>
         </div>
       </div>
