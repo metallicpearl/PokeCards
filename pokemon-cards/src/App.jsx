@@ -13,7 +13,7 @@ import {
   useGetPokemonPages,
 } from "./api/hooks/useGetPokemonData";
 import { useNavigate, useParams } from "react-router-dom";
-import { Card } from "@streets-heaver/shui2";
+import { Card, Spinner } from "@streets-heaver/shui2";
 
 function initialLoad(pokemonId) {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ export const App = () => {
   if (isLoading == true) {
     return (
       <div className={classes.LoadingContainer}>
-        <h1>Loading...</h1>
+        <Spinner text={"Loading..."} />
       </div>
     );
   }
