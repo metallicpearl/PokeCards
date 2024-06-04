@@ -14,7 +14,7 @@ export const CustomCardStandard = ({ items, cardTitle, itemscolor }) => {
         {cardTitle}
         <div className={classes.BadgeStyles}>
           {items?.map((x) => {
-            return <Badge text={x} color={itemscolor}></Badge>;
+            return <Badge key={x} text={x} color={itemscolor}></Badge>;
           })}
         </div>
       </h1>

@@ -26,7 +26,6 @@ export function AllPokemon({ fetchNextPage, data }) {
   const imageRef = useRef(null);
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
-      console.log(entries);
       if (entries[0].isIntersecting) {
         fetchNextPage();
       }

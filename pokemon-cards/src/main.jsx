@@ -1,20 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import { App } from "./App.jsx";
 import { NotFound } from "./pages/404/404.jsx";
 import { Error } from "./pages/Error/Error.jsx";
-import {
-  RouterProvider,
-  createBrowserRouter,
-  useParams,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Header, Layout } from "./Layout.jsx";
 
 const queryClient = new QueryClient();
-
 const basePath = "/pokemon";
-
 const pokeRoute = createBrowserRouter([
   {
     path: "/NotFound",

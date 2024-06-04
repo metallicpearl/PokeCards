@@ -3,13 +3,11 @@ import { Progress } from "@streets-heaver/shui2";
 
 export const StatLine = (statsCollection) => {
   const results = statsCollection?.statsCollection;
-  console.log(results);
   return (
     <div>
-      {
-      results?.map((x) => {
+      {results?.map((x) => {
         return (
-          <div className={classes.Line}>
+          <div className={classes.Line} key={x?.name}>
             {x?.name}
             <Progress
               value={x?.value}

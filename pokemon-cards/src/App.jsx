@@ -5,7 +5,7 @@ import {
   CustomCardStandard,
   CustomCardStandardStats,
 } from "./components/CustomCard/CustomCard";
-import { PersonaCard } from "./components/MainCard/MainCard";
+import { PersonaCard } from "./components/PersonaCard/PersonaCard";
 import { AllPokemon } from "./components/AllPokemon/AllPokemon";
 import {
   useGetPokemonData,
@@ -25,10 +25,19 @@ function initialLoad(pokemonId) {
 export const App = () => {
   const { pokemonId } = useParams();
   initialLoad(pokemonId);
-  const data = useGetPokemonDataFiltered(pokemonId);
+  const data = useGetPokemonDataFiltered(pokemonId)[0];
+  const isLoading = useGetPokemonDataFiltered(pokemonId)[1];
   const allData = useGetPokemonData();
   const allPages = useGetPokemonPages();
   const pokeInt = Number(pokemonId);
+  if (isLoading == true) {
+    return (
+      <div className={classes.LoadingContainer}>
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+
   if (pokeInt && pokeInt <= 1025) {
     if (typeof data !== "undefined" && typeof allData !== "undefined") {
       const height = data?.height;
@@ -43,6 +52,7 @@ export const App = () => {
         Number.parseInt(data?.stat4value) +
         Number.parseInt(data?.stat5value) +
         Number.parseInt(data?.stat6value);
+
       const abilities = () => {
         const abilitiesArray = [];
         data?.abilities?.map((x) => {
@@ -96,7 +106,7 @@ export const App = () => {
               <CustomCardMain
                 description={"description"}
                 children={[
-                  <>
+                  <div key={"customLey"}>
                     <div className={classes.SHUI2CardStyling}>
                       <div className={classes.SpeciesTypeDescriptor}>
                         Species:
@@ -112,7 +122,7 @@ export const App = () => {
                         >{`${type.toUpperCase()}`}</div>
                       </div>
                     </div>
-                  </>,
+                  </div>,
                 ]}
               />
             </div>
@@ -189,5 +199,3 @@ export const App = () => {
     );
   }
 };
-
-export default App;

@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import classes from "./Layout.module.scss";
 import pokeLogo from "./assets/PokemonLogo.png";
-import App from "./App";
+import { App } from "./App";
 
 export const Header = () => {
   return (

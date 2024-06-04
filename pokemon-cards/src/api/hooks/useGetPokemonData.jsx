@@ -17,18 +17,16 @@ export const useGetPokemonPages = () => {
           };
         })
       );
-      console.log(mappedData);
       return { ...pokeData?.data, results: mappedData };
     },
-    getNextPageParam: (lastPage) => lastPage?.next,
+    getNextPageParam: (nextPage) => nextPage?.next,
     refetchOnWindowFocus: false,
   });
-  console.log();
   return pokeData;
 };
 
 export const useGetPokemonData = () => {
-  const { data, error } = useQuery({
+  const { data, error, isLoading } = useQuery({
     queryKey: ["pokemonData"],
     queryFn: async () => {
       const pokeData = await axios.get(`https://pokeapi.co/api/v2/pokemon/`);
@@ -49,6 +47,10 @@ export const useGetPokemonData = () => {
     refetchOnWindowFocus: false,
   });
 
+  if (isLoading) {
+    return <h4>Loading...</h4>;
+  }
+
   if (error) {
     console.error(error?.message);
   }
@@ -56,7 +58,7 @@ export const useGetPokemonData = () => {
 };
 
 export const useGetPokemonDataFiltered = (filter) => {
-  const { data, error } = useQuery({
+  const { data, error, isLoading } = useQuery({
     queryKey: ["pokemonFilteredData"],
     queryFn: async () => {
       const filteredPokeData = await Promise.resolve(
@@ -97,8 +99,9 @@ export const useGetPokemonDataFiltered = (filter) => {
     retry: 2,
     refetchOnWindowFocus: false,
   });
+
   if (error) {
     console.error(error?.message);
   }
-  return data;
+  return [data, isLoading];
 };

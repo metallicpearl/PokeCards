@@ -1,6 +1,6 @@
 @import "@streets-heaver/shui2/SHUI2Styles.css";
 
-.MainCard{
+.PersonaCard{
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -9,12 +9,12 @@
     gap: 10px;
 }
 
-.MainCardLabel{
+.PersonaCardLabel{
     font-weight: 800;
     padding: 20px;
 }
 
-.MainCardItems {
+.PersonaCardItems {
     display: flex;
     flex-direction: column;
     gap: 10px;

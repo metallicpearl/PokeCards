@@ -70,6 +70,14 @@ padding: 10px;
 
 }
 
+.LoadingContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  align-items: center;
+  font-size: xx-large;
+}
+
 .ImagesStatsContainer {
   margin-top: 10px;
 }
