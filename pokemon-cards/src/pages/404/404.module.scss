@@ -41,6 +41,8 @@
     flex-direction: column;
     align-items: center;
     margin: 20px;
+    max-height: 50%;
+    max-height: 50%;
     animation-name: pika-spin;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -69,7 +71,7 @@
       transform: rotate(0deg);
     }
     to {
-      transform: rotate(7200deg);
+      transform: rotate(720deg);
     }
   }
   

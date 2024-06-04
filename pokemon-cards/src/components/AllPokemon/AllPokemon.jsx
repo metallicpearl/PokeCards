@@ -35,7 +35,7 @@ export function AllPokemon({ fetchNextPage, data }) {
   }, [imageRef]);
   const navigate = useNavigate();
   function ClickPokemon(id) {
-    navigate(`../pokemon/${id}`);
+    navigate(`../${id}`);
     window.location.reload();
   }
   let [hoverId, updateHoverId] = useState(null);

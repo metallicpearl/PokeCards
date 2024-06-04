@@ -1,7 +1,5 @@
 import axios from "axios";
 import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
 
 export const useGetPokemonPages = () => {
   const pokeData = useInfiniteQuery({

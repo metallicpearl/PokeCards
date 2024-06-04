@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomCardStandard, CustomCardMain } from "./../CustomCard/CustomCard";
+import { CustomCardMain } from "./../CustomCard/CustomCard";
 import { PokemonBanner } from "../PokemonBanner/PokemonBanner";
 import classes from "./../CustomCard/CustomCard.module.scss";
 import "@streets-heaver/shui2/SHUI2Styles.css";
