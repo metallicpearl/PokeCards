@@ -1,0 +1,94 @@
+.NotFoundCard {
+    margin: 10px;
+    font-size: xxx-large;
+    font-family:fantasy;
+    animation-name: NotFoundMove;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; 
+}
+
+
+.PageContent {
+    max-width: 100vw;
+    max-height: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px;
+}
+
+.PageNotFoundText {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+
+    .Word {
+        opacity: 0%; 
+        animation-name: explosion;
+        animation-delay: 0.25;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        font-size: xxx-large;
+        font-family: fantasy;
+    }
+    
+
+.Image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    max-height: 50%;
+    max-height: 50%;
+    animation-name: pika-spin;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+
+}
+
+.ExplosionImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin: 20px;
+    opacity: 0%;
+    animation-name: explosion;
+    animation-delay: 0.05s;
+    animation-duration: 2s; 
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+
+} 
+
+
+@keyframes pika-spin {
+    from {
+      margin-top: 5%;
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(720deg);
+    }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .pika-spin {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+
+
+ @keyframes explosion {
+
+    from {
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+    }
+ }

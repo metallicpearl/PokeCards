@@ -1,0 +1,111 @@
+@import "@streets-heaver/shui2/SHUI2Styles.css";
+
+
+.CustomCardMain{
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    padding: 0px 5px 5px 5px;
+    margin: 5px;
+    width: 180px;
+    gap: 5px;
+}
+
+.SHUI2CardStyling{
+    background-color:lightgray;
+    border-radius: 6px;
+    margin-left: 15px;
+    margin-top: 30px;
+    padding: 10px;
+    width: 140px;
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+.CustomCardMainItems{
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+}
+
+.CustomCardStandard{
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    align-items: center;
+    min-width: 170px;
+}
+
+
+.CustomCardStandardStats{
+    display: flex;
+    flex-direction: row;
+    font-weight: 300;
+    font-size: large;
+    align-items: left;
+    padding:10px;
+    min-width: 170px;
+}
+
+.CustomCardTitle{
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    
+}
+
+.BadgeStyles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10px;
+    gap: 10px;
+}
+
+.BadgeStylesSingle {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding-top: 0px;
+}
+
+.PokemonBanner {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 0px 5px 5px;
+    
+}
+.PokemonBannerImage {
+    display: flex;
+    flex-direction: column;
+}
+
+.PokemonBannerImageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PokemonPersona {
+    padding-top: 10px;
+}
+
+.PercentageDescriptor {
+    font-weight: 300;
+}
+
+.PercentageValue {
+    font-weight: 500;
+    font-size: xx-large;
+  }
+
+@keyframes imagetransition {
+    from {
+      src: rotate(0deg);
+    }
+    to {
+      src: rotate(360deg);
+    }
+  }
